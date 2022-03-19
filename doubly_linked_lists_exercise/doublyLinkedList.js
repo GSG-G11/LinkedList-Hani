@@ -100,14 +100,42 @@ DoublyLinkedList.prototype.set = function(index, val){
 }
 
 DoublyLinkedList.prototype.pop = function(){
+
+    if(!this.head){
+        return undefined;
+    }
+    if(!this.head.next){
+        this.head = this.head.next;
+        this.length--;
+        return null;
+    }
+    else{
+        let temp = this.tail;
+        let previous = this.tail.prev;
+        previous.next = temp.prev = temp.next = null;
+        this.tail = previous;
+        this.length--;
+        return temp.val;
+    }
     
 }
 
-DoublyLinkedList.prototype.shift = function(){
-    
-}
+// DoublyLinkedList.prototype.shift = function(){
+//     if(!this.head) return undefined;
+//         let temp = this.head;
+//         let later = this.head.next;
+//         later.prev = null;
+//         temp.next = null;
+//         this.head= this.head.next;
+//     this.length--;
+
+//     return this;
+
+// }
 
 DoublyLinkedList.prototype.remove = function(index){
+
+
     
 }
 
