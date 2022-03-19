@@ -53,7 +53,26 @@ DoublyLinkedList.prototype.unshift = function(val){
 }
 
 DoublyLinkedList.prototype.insert = function(index, val){
-    
+    if(index < 0 && index > this.length){
+        return undefined; //index out of bounds
+    }
+    let node = new Node(val);
+    let current = this.head;
+    let previous;
+    let count = 0;
+
+    while(count < index){
+        previous = current;
+        current = current.next;
+        count++;
+    }
+    previous.next = node;
+    node.prev = previous;
+    current.prev = node;
+    node.next = current;
+    this.length++;
+
+    return this;
 }
 
 
