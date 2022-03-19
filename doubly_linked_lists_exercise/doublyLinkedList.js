@@ -37,7 +37,19 @@ DoublyLinkedList.prototype.push = function(val){
 }
 
 DoublyLinkedList.prototype.unshift = function(val){
-    
+
+    let node = new Node(val);
+
+    if(!this.head){
+        this.head = node;
+        this.tail = node;
+    }else{
+        node.next = this.head;
+        this.head.prev = node;
+        this.head = node;
+    }
+    this.length++;
+    return this;
 }
 
 DoublyLinkedList.prototype.insert = function(index, val){
