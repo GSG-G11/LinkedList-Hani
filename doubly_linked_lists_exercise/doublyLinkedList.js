@@ -77,11 +77,22 @@ DoublyLinkedList.prototype.insert = function(index, val){
 
 
 DoublyLinkedList.prototype.getNode = function(index){
-   
+   if(index < 0 && index > this.length){
+       return undefined;
+   }
+   let current = this.head;
+   let count = 0;
+   while(count < index){
+    current = current.next;
+    count++;
+   }
+   return current;
+
 }
 
 DoublyLinkedList.prototype.get = function(index){
-    
+    let node = this.getNode(index);
+    return node ? node.val : null;
 }
 
 DoublyLinkedList.prototype.set = function(index, val){
