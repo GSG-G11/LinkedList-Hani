@@ -18,6 +18,7 @@ function DoublyLinkedList(array = []){
 
 DoublyLinkedList.prototype.push = function(val){
     
+    
 }
 
 DoublyLinkedList.prototype.unshift = function(val){
