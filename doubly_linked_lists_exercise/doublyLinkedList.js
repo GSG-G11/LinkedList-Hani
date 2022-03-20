@@ -99,7 +99,7 @@ DoublyLinkedList.prototype.set = function(index, val){
     if(index < 0 && index > this.length){
         return undefined;
     }
-    
+
     let current = this.head;
     let count = 0;
     
@@ -148,7 +148,30 @@ DoublyLinkedList.prototype.shift = function(){
 }
 
 DoublyLinkedList.prototype.remove = function(index){
- 
+
+    if (index < 0 || index >= this.length) {
+        return undefined;
+    }
+    if(this.length===1){
+        this.head = null;
+    }else{
+        
+        let current = this.head;
+        let previous;
+        let count = 0;
+
+        while(count < index){
+            previous = current;
+            current = current.next;
+            count++
+        }
+        previous.next = current.next;
+        current.prev = current.next = null;
+        this.length--;
+        
+        return current;
+    }
+
 
 
     
