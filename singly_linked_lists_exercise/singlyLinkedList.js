@@ -150,8 +150,6 @@ SinglyLinkedList.prototype.remove = function (index) {
   }
 }
 
-SinglyLinkedList.prototype.reverse = function () {
-}
 
 // SinglyLinkedList.prototype.reverse = function () {
 //   let node = this.head;

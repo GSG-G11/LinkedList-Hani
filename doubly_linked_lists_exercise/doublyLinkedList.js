@@ -178,5 +178,26 @@ DoublyLinkedList.prototype.remove = function(index){
 }
 
 DoublyLinkedList.prototype.reverse = function(){
+    if(!this.head){
+        return undefined; 
+    }
+
     
+    let current = this.head;
+    let temp;
+
+
+    while(current){
+        temp = current.prev;
+        current.prev = current.next;
+        current.next = temp;
+        current = current.prev;
+    }
+
+    if (temp != null) {
+        // Check fro one value linked list
+        this.head = temp.prev;
+    }
+
+     
 }
