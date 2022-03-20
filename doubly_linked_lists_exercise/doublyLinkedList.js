@@ -101,9 +101,7 @@ DoublyLinkedList.prototype.set = function(index, val){
 
 DoublyLinkedList.prototype.pop = function(){
 
-    if(!this.head){
-        return undefined;
-    }
+    if(!this.head) return undefined;
     if(!this.head.next){
         this.head = this.head.next;
         this.length--;
@@ -120,20 +118,21 @@ DoublyLinkedList.prototype.pop = function(){
     
 }
 
-// DoublyLinkedList.prototype.shift = function(){
-//     if(!this.head) return undefined;
-//         let temp = this.head;
-//         let later = this.head.next;
-//         later.prev = null;
-//         temp.next = null;
-//         this.head= this.head.next;
-//     this.length--;
-
-//     return this;
-
-// }
+DoublyLinkedList.prototype.shift = function(){
+    
+  if(!this.head){
+    return undefined;
+  }
+    let temp = this.head;
+    this.head = this.head.next;
+    temp.next = null; 
+    this.length--;
+    return temp.val;
+    
+}
 
 DoublyLinkedList.prototype.remove = function(index){
+
 
 
     
