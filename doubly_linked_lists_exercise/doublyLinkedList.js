@@ -96,6 +96,22 @@ DoublyLinkedList.prototype.get = function(index){
 }
 
 DoublyLinkedList.prototype.set = function(index, val){
+    if(index < 0 && index > this.length){
+        return undefined;
+    }
+    
+    let current = this.head;
+    let count = 0;
+    
+    while(current){
+        if(count === index){
+            current.val = val;
+        }
+        current = current.next;
+        count++;
+    }
+
+    return current;
     
 }
 
@@ -132,7 +148,7 @@ DoublyLinkedList.prototype.shift = function(){
 }
 
 DoublyLinkedList.prototype.remove = function(index){
-
+ 
 
 
     
